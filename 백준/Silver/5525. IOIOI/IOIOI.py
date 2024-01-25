@@ -6,21 +6,23 @@ n = int(input())
 plen = n * 2 + 1
 m = int(input())
 string = list(input())
-dq = deque()
+candA = 0
 result = 0
 for char in string:
-    dqlen = len(dq)
-    for _ in range(dqlen):
-        e = dq.popleft()
-        if (e % 2 == 0 and char == "I"):
-            e += 1
-            if (e == plen):
-                result += 1
-            else:
-                dq.append(e)
-        elif (e % 2 == 1 and char == "O"):
-            e += 1
-            dq.append(e)
+    
     if (char == "I"):
-        dq.append(1)
+        if (candA % 2 == 0):
+            candA += 1
+            if (candA == plen):
+                result += 1
+                candA -= 2
+        else:
+            candA = 1
+    else:
+        if (candA % 2 == 1):
+            candA += 1
+        else:
+            candA = 0
+            
+
 print("%d" % (result))
