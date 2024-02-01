@@ -1,26 +1,25 @@
 import sys
-from bisect import bisect_right
-print = sys.stdout.write
 input = sys.stdin.readline
+print = sys.stdout.write
+
 n = int(input())
-
-arr1 = []
-arr2 = set()
+inp = []
 for i in range(n):
-    arr1.append(int(input()))
-
+    inp.append(int(input()))
+x_y = set()
+inp.sort()
 for i in range(n):
     for j in range(n):
-        arr2.add(arr1[i] + arr1[j])
+        x_y.add(inp[i] + inp[j])
 
-arr1.sort() 
 def solution():
     for i in range(n):
-        k = arr1[n - 1 - i]
-        for x in arr1:
-            z_y = k - x
-            if (z_y in arr2):
+        k = inp[n - 1 - i]
+        for j in range(n - i):
+            z = inp[n - 1 - i - j]
+            temp = k - z
+            if (temp in x_y):
                 print("%d" % k)
                 return
-            
+
 solution()
