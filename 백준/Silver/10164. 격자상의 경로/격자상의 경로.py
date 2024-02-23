@@ -1,4 +1,4 @@
-import sys, math
+import sys
 input = sys.stdin.readline
 print = sys.stdout.write
 n, m, k = map(int, input().split())
@@ -6,7 +6,7 @@ if k == 0:
     kx, ky = 0, 0
 elif (k % m == 0):
     kx = k // m - 1
-    ky = m
+    ky = m - 1
 else:
     kx, ky = k // m, k % m - 1
 dp = [[0 for __ in range(m)] for _ in range(n)]
