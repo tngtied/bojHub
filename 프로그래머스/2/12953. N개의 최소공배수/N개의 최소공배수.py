@@ -1,13 +1,14 @@
 def solution(arr):
-    sp = max(arr)
+    candidate = max(arr)
     while True:
         flag = False
         for el in arr:
-            if sp % el != 0:
+            if candidate % el != 0:
                 flag = True
                 break
-        if (flag):
-            sp += 1
+        if flag:
+            candidate += max(arr)
         else:
+            answer = candidate
             break
-    return sp
+    return answer
